@@ -6,7 +6,7 @@
 
 {{/* //{{ .Name }} Events - * (Manually copy this to other location) */}}
 func (c _StoreImpl) Get{{ .Name }}By{{$id}}{{$_}} ({{$id}} int) (*{{ .Name }},bool){
-	o ,ok :=Cacher.Get("{{ .Name }}:"+strconv.Itoa({{$id}}))
+	o ,ok :=RowCache.Get("{{ .Name }}:"+strconv.Itoa({{$id}}))
 	if ok {
 		if obj, ok := o.(*{{ .Name }});ok{
 			return obj, true
